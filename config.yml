@@ -1,0 +1,5 @@
+ac:
+  permission: adminchat.use
+  usage: "/ac <сообщение>"
+  permission-message: "&cВы не имеет прав не выполнение этой команды!"
+  format: "&c[&fAdmin&1Chat&c]&f %player: &7%message"

@@ -1,0 +1,24 @@
+name: JustChats
+main: me.FortiBrine.JustChats.main.Main
+version: 1.0
+
+description: "Плагин на управление уникальными чатами."
+author: IJustFortiLive
+authors: [IJustFortiLive, ChelovekKirill]
+api-version: 1.13
+
+commands:
+  jcreload:
+    description: "Перезапуск конфигурации"
+    permission: justchats.reload
+    permission-message: "§cВы не имеет прав не выполнение этой команды!"
+    usage: /jcreload
+
+permissions:
+  justchats.*:
+    description: "Все права"
+    children:
+      justchats.reload: true
+  justchats.reload:
+    description: "Право на перезапуск конфига"
+    default: op
