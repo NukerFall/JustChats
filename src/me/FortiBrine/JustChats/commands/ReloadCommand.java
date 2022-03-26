@@ -15,7 +15,6 @@ public class ReloadCommand implements CommandExecutor {
 	}
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		plugin.reloadMessageFile();
 		plugin.reloadConfig();
 		arg0.sendMessage(messageConfig.getString("reload", "Êîíôèã ïåðåçàãðóæåí!")); // переведи весь код в UTF-8
 		return true;
