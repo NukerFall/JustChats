@@ -16,6 +16,11 @@ public class Main extends JavaPlugin {
 		reloadLocale();
 		new ReloadCommand(this);
 		new MainListener(this);
+		send("&aPlugin enabled!");
+	}
+	
+	public void onDisable() {
+		send("&cPlugin disabled!");	
 	}
 	
 	public void reloadLocale() {
@@ -23,5 +28,9 @@ public class Main extends JavaPlugin {
 			saveResource("locale.yml", false);	
 		}
 		lconf = YamlConfiguration.loadConfiguration(locale);
+	}
+	
+	public void send(String s) {
+		getServer().getConsoleSender().sendMessage("[JustChats] " + ChatColor.translateAlternateColorCodes('&', s));
 	}
 }
