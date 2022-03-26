@@ -4,21 +4,21 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
-
 import me.FortiBrine.JustChats.main.Main;
 
 public class ReloadCommand implements CommandExecutor {
 
 	private Main plugin;
+	
 	public ReloadCommand(Main plugin) {
 		this.plugin = plugin;
+		plugin.getCommand("jcreload").setExecutor(this);
 	}
 	@Override
-	public boolean onCommand(CommandSender arg0, Command arg1, String arg2, String[] arg3) {
-		YamlConfiguration messageConfig = YamlConfiguration.loadConfiguration(plugin.messageFile);
-		
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		plugin.reloadConfig();
-		arg0.sendMessage(messageConfig.getString("reload", "Конфиг перезагружен!"));
-		return true;
+		plugin.reloadLocale();
+		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getLocale().getString("reload")));
+		return false;
 	}
 }
